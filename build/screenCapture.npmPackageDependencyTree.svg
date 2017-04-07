@@ -1,0 +1,44 @@
+<svg height="654" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="654" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">└─┬ listr@0.11.0 </tspan>
+<tspan x="10" y="42">  ├─┬ chalk@1.1.3 </tspan>
+<tspan x="10" y="58">  │ ├── ansi-styles@2.2.1 </tspan>
+<tspan x="10" y="74">  │ ├── escape-string-regexp@1.0.5 </tspan>
+<tspan x="10" y="90">  │ ├── has-ansi@2.0.0 </tspan>
+<tspan x="10" y="106">  │ └── supports-color@2.0.0 </tspan>
+<tspan x="10" y="122">  ├─┬ cli-truncate@0.2.1 </tspan>
+<tspan x="10" y="138">  │ ├── slice-ansi@0.0.4 </tspan>
+<tspan x="10" y="154">  │ └─┬ string-width@1.0.2 </tspan>
+<tspan x="10" y="170">  │   ├── code-point-at@1.1.0 </tspan>
+<tspan x="10" y="186">  │   └─┬ is-fullwidth-code-point@1.0.0 </tspan>
+<tspan x="10" y="202">  │     └── number-is-nan@1.0.1 </tspan>
+<tspan x="10" y="218">  ├─┬ figures@1.7.0 </tspan>
+<tspan x="10" y="234">  │ └── object-assign@4.1.1 </tspan>
+<tspan x="10" y="250">  ├─┬ indent-string@2.1.0 </tspan>
+<tspan x="10" y="266">  │ └─┬ repeating@2.0.1 </tspan>
+<tspan x="10" y="282">  │   └── is-finite@1.0.2 </tspan>
+<tspan x="10" y="298">  ├── is-promise@2.1.0 </tspan>
+<tspan x="10" y="314">  ├── is-stream@1.1.0 </tspan>
+<tspan x="10" y="330">  ├── listr-silent-renderer@1.1.1 </tspan>
+<tspan x="10" y="346">  ├─┬ listr-update-renderer@0.2.0 </tspan>
+<tspan x="10" y="362">  │ ├── elegant-spinner@1.0.1 </tspan>
+<tspan x="10" y="378">  │ └── indent-string@3.1.0 </tspan>
+<tspan x="10" y="394">  ├─┬ listr-verbose-renderer@0.4.0 </tspan>
+<tspan x="10" y="410">  │ ├─┬ cli-cursor@1.0.2 </tspan>
+<tspan x="10" y="426">  │ │ └─┬ restore-cursor@1.0.1 </tspan>
+<tspan x="10" y="442">  │ │   ├── exit-hook@1.1.1 </tspan>
+<tspan x="10" y="458">  │ │   └── onetime@1.1.0 </tspan>
+<tspan x="10" y="474">  │ └── date-fns@1.28.2 </tspan>
+<tspan x="10" y="490">  ├── log-symbols@1.0.2 </tspan>
+<tspan x="10" y="506">  ├─┬ log-update@1.0.2 </tspan>
+<tspan x="10" y="522">  │ └── ansi-escapes@1.4.0 </tspan>
+<tspan x="10" y="538">  ├─┬ ora@0.2.3 </tspan>
+<tspan x="10" y="554">  │ └── cli-spinners@0.1.2 </tspan>
+<tspan x="10" y="570">  ├─┬ rxjs@5.3.0 </tspan>
+<tspan x="10" y="586">  │ └── symbol-observable@1.0.4 </tspan>
+<tspan x="10" y="602">  ├── stream-to-observable@0.1.0 </tspan>
+<tspan x="10" y="618">  └─┬ strip-ansi@3.0.1 </tspan>
+<tspan x="10" y="634">    └── ansi-regex@2.1.1</tspan>
+</text>
+</svg>
