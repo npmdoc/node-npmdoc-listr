@@ -63,6 +63,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.listr.listr">
+            function <span class="apidocSignatureSpan"></span>listr
+            <span class="apidocSignatureSpan">(tasks, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">listr.</span>renderer</span>
 
         </li>
@@ -157,6 +166,115 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.listr" id="apidoc.module.listr">module listr</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.listr.listr" id="apidoc.element.listr.listr">
+        function <span class="apidocSignatureSpan"></span>listr
+        <span class="apidocSignatureSpan">(tasks, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Listr {
+
+	constructor(tasks, opts) {
+		if (tasks &#x26;&#x26; !Array.isArray(tasks) &#x26;&#x26; typeof tasks === &#x27;object&#x27;) {
+			opts = tasks;
+			tasks = [];
+		}
+
+		if (tasks &#x26;&#x26; !Array.isArray(tasks)) {
+			throw new TypeError(&#x27;Expected an array of tasks&#x27;);
+		}
+
+		this._options = Object.assign({
+			showSubtasks: true,
+			concurrent: false,
+			renderer: &#x27;default&#x27;,
+			nonTTYRenderer: &#x27;verbose&#x27;
+		}, opts);
+		this._tasks = [];
+		this._RendererClass = renderer.getRenderer(this._options.renderer, this._options.nonTTYRenderer);
+
+		this.exitOnError = this._options.exitOnError;
+
+		this.add(tasks || []);
+	}
+
+	_checkAll(context) {
+		for (const task of this._tasks) {
+			task.check(context);
+		}
+	}
+
+	get tasks() {
+		return this._tasks;
+	}
+
+	setRenderer(value) {
+		this._RendererClass = renderer.getRenderer(value);
+	}
+
+	add(task) {
+		const tasks = Array.isArray(task) ? task : [task];
+
+		for (const task of tasks) {
+			this._tasks.push(new Task(this, task, this._options));
+		}
+
+		return this;
+	}
+
+	render() {
+		if (!this._renderer) {
+			this._renderer = new this._RendererClass(this._tasks, this._options);
+		}
+
+		return this._renderer.render();
+	}
+
+	run(context) {
+		this.render();
+
+		context = context || Object.create(null);
+
+		const errors = [];
+
+		this._checkAll(context);
+
+		let tasks;
+		if (this._options.concurrent === true) {
+			tasks = Promise.all(this._tasks.map(task =&#x3e; runTask(task, context, errors)));
+		} else {
+			tasks = this._tasks.reduce((promise, task) =&#x3e; promise.then(() =&#x3e; {
+				this._checkAll(context);
+
+				return runTask(task, context, errors);
+			}), Promise.resolve());
+		}
+
+		return tasks
+			.then(() =&#x3e; {
+				if (errors.length &#x3e; 0) {
+					const err = new ListrError(&#x27;Something went wrong&#x27;);
+					err.errors = errors;
+					throw err;
+				}
+
+				this._renderer.end();
+
+				return context;
+			})
+			.catch(err =&#x3e; {
+				err.context = context;
+				this._renderer.end(err);
+				throw err;
+			});
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
 
